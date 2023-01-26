@@ -1,0 +1,1 @@
+eval "$(shadowenv init zsh)"
