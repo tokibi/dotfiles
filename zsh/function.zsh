@@ -142,6 +142,17 @@ function fzf-kube-describe-pods() {
 zle -N fzf-kube-describe-pods
 bindkey '^@kd' fzf-kube-describe-pods
 
+#---------------------------
+# GCP
+#---------------------------
+function fzf-gcp-context() {
+  local out=$(gcloud config configurations list | fzf --header-lines=1 --query "$LBUFFER" | cut -d ' ' -f1)
+  [ -z "$out" ] && zle redisplay && return
+  input-line "gcloud config configurations activate $(echo $out)"
+  zle accept-line
+}
+zle -N fzf-gcp-context
+bindkey '^@gc' fzf-gcp-context
 
 #---------------------------
 # SSH
