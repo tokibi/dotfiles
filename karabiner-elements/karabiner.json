@@ -53,7 +53,8 @@
                                             "left_control"
                                         ],
                                         "optional": [
-                                            "any"
+                                            "shift",
+                                            "command"
                                         ]
                                     }
                                 },
@@ -72,7 +73,8 @@
                                             "left_control"
                                         ],
                                         "optional": [
-                                            "any"
+                                            "shift",
+                                            "command"
                                         ]
                                     }
                                 },
@@ -91,7 +93,8 @@
                                             "left_control"
                                         ],
                                         "optional": [
-                                            "any"
+                                            "shift",
+                                            "command"
                                         ]
                                     }
                                 },
@@ -110,7 +113,8 @@
                                             "left_control"
                                         ],
                                         "optional": [
-                                            "any"
+                                            "shift",
+                                            "command"
                                         ]
                                     }
                                 },
@@ -134,7 +138,8 @@
                                             "left_control"
                                         ],
                                         "optional": [
-                                            "any"
+                                            "shift",
+                                            "command"
                                         ]
                                     }
                                 },
@@ -156,7 +161,8 @@
                                             "left_control"
                                         ],
                                         "optional": [
-                                            "any"
+                                            "shift",
+                                            "command"
                                         ]
                                     }
                                 },
@@ -173,11 +179,11 @@
                         ]
                     },
                     {
-                        "description": "right_cmd to HYPER(shift+cmd+option+ctrl)",
+                        "description": "Change tab to shift+cmd+option. (Post tab if pressed alone)",
                         "manipulators": [
                             {
                                 "from": {
-                                    "key_code": "right_command",
+                                    "key_code": "tab",
                                     "modifiers": {
                                         "optional": [
                                             "any"
@@ -189,9 +195,13 @@
                                         "key_code": "left_shift",
                                         "modifiers": [
                                             "left_command",
-                                            "left_control",
                                             "left_option"
                                         ]
+                                    }
+                                ],
+                                "to_if_alone": [
+                                    {
+                                        "key_code": "tab"
                                     }
                                 ],
                                 "type": "basic"

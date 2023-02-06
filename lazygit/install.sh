@@ -7,6 +7,7 @@ DOTFILES_ROOT=$(git rev-parse --show-toplevel)
 
 info "setup $NAME"
 
+mkdir -p "$XDG_CONFIG_HOME/lazygit"
 link_file "$SCRIPT_DIR/config.yml" "$XDG_CONFIG_HOME/lazygit/config.yml"
 
 success "$NAME"
