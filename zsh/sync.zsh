@@ -22,7 +22,7 @@ source <(kubectl completion zsh)
 zshaddhistory() {
 	local line="${1%%$'\n'}"
 	# The following commands are not recorded in the history file.
-	[[ ! "$line" =~ "^(cd|l[sal]|tig|lg|lazygit|rm|rmdir)($| )" ]]
+	[[ ! "$line" =~ "^(tig|lg|lazygit|rm|rmdir)($| )" ]]
 }
 
 # starship
