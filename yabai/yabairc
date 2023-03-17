@@ -40,14 +40,11 @@ yabai -m config mouse_action2                resize
 yabai -m config mouse_drop_action            swap
 
 yabai -m config layout                       bsp
-yabai -m config top_padding                  42
-yabai -m config bottom_padding               10
-yabai -m config left_padding                 10
-yabai -m config right_padding                10
-yabai -m config window_gap                   10
-
-yabai -m rule --add app="^Slack$" space=1
-yabai -m rule --add app="Gather" space=2
+yabai -m config top_padding                  38
+yabai -m config bottom_padding               6
+yabai -m config left_padding                 6
+yabai -m config right_padding                6
+yabai -m config window_gap                   6
 
 yabai -m rule --add app="^システム環境設定$" manage=off
 yabai -m rule --add app="^System Preferences$" manage=off
