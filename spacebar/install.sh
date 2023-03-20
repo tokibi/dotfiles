@@ -9,6 +9,7 @@ info "setup $NAME"
 
 mkdir -p "$XDG_CONFIG_HOME/spacebar"
 link_file "$SCRIPT_DIR/spacebarrc" "$XDG_CONFIG_HOME/spacebar/spacebarrc"
+link_file "$SCRIPT_DIR/bin" "$XDG_CONFIG_HOME/spacebar/bin"
 
 success "$NAME"
 

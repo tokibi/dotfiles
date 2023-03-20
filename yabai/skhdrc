@@ -1,3 +1,4 @@
+#!/bin/sh
 # modifiers and literals: https://github.com/koekeishiya/skhd/issues/1
 # yabai commands: https://github.com/koekeishiya/yabai/wiki/Commands
 # refs:
@@ -85,16 +86,22 @@ fn + cmd - r : \
 # toggle fullscreen
 fn - f : yabai -m window --toggle zoom-fullscreen
 
+fn - y: ~/.config/yabai/bin/ensure-focus-window.sh
+
 # focus window
 # (If there is a window that is full-screened, disable it.)
-fn - h : ~/.config/yabai/bin/disable-fullscreen.sh; \
-         yabai -m window --focus west || yabai -m display --focus west
-fn - j : ~/.config/yabai/bin/disable-fullscreen.sh; \
-         yabai -m window --focus south || yabai -m display --focus south
-fn - k : ~/.config/yabai/bin/disable-fullscreen.sh; \
-         yabai -m window --focus north || yabai -m display --focus north
-fn - l : ~/.config/yabai/bin/disable-fullscreen.sh; \
-         yabai -m window --focus east || yabai -m display --focus east
+fn - h : ~/.config/yabai/bin/disable-fullscreen.sh && \
+         ~/.config/yabai/bin/ensure-focus-window.sh && \
+         (yabai -m window --focus west || yabai -m display --focus west)
+fn - j : ~/.config/yabai/bin/disable-fullscreen.sh && \
+         ~/.config/yabai/bin/ensure-focus-window.sh && \
+         (yabai -m window --focus south || yabai -m display --focus south)
+fn - k : ~/.config/yabai/bin/disable-fullscreen.sh && \
+         ~/.config/yabai/bin/ensure-focus-window.sh && \
+         (yabai -m window --focus north || yabai -m display --focus north)
+fn - l : ~/.config/yabai/bin/disable-fullscreen.sh && \
+         ~/.config/yabai/bin/ensure-focus-window.sh && \
+         (yabai -m window --focus east || yabai -m display --focus east)
 fn - z : ~/.config/yabai/bin/disable-fullscreen.sh; \
          yabai -m window --focus west || yabai -m display --focus recent
 

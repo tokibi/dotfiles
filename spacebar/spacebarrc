@@ -27,3 +27,5 @@ spacebar -m config clock_format                "%y/%m/%d %R"
 spacebar -m config right_shell                 off
 spacebar -m config right_shell_icon            
 spacebar -m config right_shell_command         "whoami"
+
+echo "spacebar configuration loaded.."
