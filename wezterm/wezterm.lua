@@ -16,7 +16,15 @@ return {
     },
 
     -- UI
-    color_scheme = "OneHalfDark",
+    -- color_scheme = "OneHalfDark",
+    color_scheme = "Catppuccin Macchiato",
+    window_decorations = "RESIZE",
+    window_padding = {
+        left = 15,
+        right = 15,
+        top = 10,
+        bottom = 10,
+    },
 
     -- Key Binding
     leader = {
