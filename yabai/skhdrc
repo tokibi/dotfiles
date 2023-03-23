@@ -72,7 +72,7 @@
 #               an EOL character signifies the end of the bind.
 #
 
-:: default : yabai -m config active_window_border_color 0xff7bbaf1
+:: default : yabai -m config active_window_border_color 0xfff5a97f
 :: app :     yabai -m config active_window_border_color 0xffdc143c
 
 # restart

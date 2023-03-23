@@ -80,3 +80,6 @@ symbol = " "
 
 [scala]
 symbol = " "
+
+[fill]
+symbol = " "
