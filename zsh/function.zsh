@@ -67,6 +67,7 @@ function fzf-docker-exec {
 }
 zle -N fzf-docker-exec
 bindkey '^@de' fzf-docker-exec
+bindkey '^[de' fzf-docker-exec
 
 
 #---------------------------
@@ -81,6 +82,7 @@ function fzf-git-directory() {
 }
 zle -N fzf-git-directory
 bindkey '^@gd' fzf-git-directory
+bindkey '^[gd' fzf-git-directory
 
 # checkout git branch
 function fzf-git-branch() {
@@ -92,6 +94,7 @@ function fzf-git-branch() {
 }
 zle -N fzf-git-branch
 bindkey '^@gb'  fzf-git-branch
+bindkey '^[gb'  fzf-git-branch
 
 
 #---------------------------
@@ -105,6 +108,7 @@ function fzf-kube-cluster() {
 }
 zle -N fzf-kube-cluster
 bindkey '^@kc'  fzf-kube-cluster
+bindkey '^[kc'  fzf-kube-cluster
 
 function fzf-kube-namespace() {
     local out=$(kubectl get namespace | fzf --header-lines=1 --query "$LBUFFER" | cut -d ' ' -f1)
@@ -114,6 +118,7 @@ function fzf-kube-namespace() {
 }
 zle -N fzf-kube-namespace
 bindkey '^@kn'  fzf-kube-namespace
+bindkey '^[kn'  fzf-kube-namespace
 
 function fzf-kube-exec() {
   local out=$(kubectl get pods | fzf --header-lines=1 --query "$LBUFFER" | cut -d ' ' -f1)
@@ -123,6 +128,7 @@ function fzf-kube-exec() {
 }
 zle -N fzf-kube-exec
 bindkey '^@ke'  fzf-kube-exec
+bindkey '^[ke'  fzf-kube-exec
 
 function fzf-kube-logs() {
   local out=$(kubectl get pods | fzf --header-lines=1 --query "$LBUFFER" | cut -d ' ' -f1)
@@ -132,6 +138,7 @@ function fzf-kube-logs() {
 }
 zle -N fzf-kube-logs
 bindkey '^@kl'  fzf-kube-logs
+bindkey '^[kl'  fzf-kube-logs
 
 function fzf-kube-describe-pods() {
   local out=$(kubectl get pods | fzf --header-lines=1 --query "$LBUFFER" | cut -d ' ' -f1)
@@ -141,6 +148,7 @@ function fzf-kube-describe-pods() {
 }
 zle -N fzf-kube-describe-pods
 bindkey '^@kd' fzf-kube-describe-pods
+bindkey '^[kd' fzf-kube-describe-pods
 
 #---------------------------
 # GCP
@@ -153,6 +161,7 @@ function fzf-gcp-context() {
 }
 zle -N fzf-gcp-context
 bindkey '^@gc' fzf-gcp-context
+bindkey '^[gc' fzf-gcp-context
 
 #---------------------------
 # SSH
@@ -165,3 +174,21 @@ function fzf-ssh-known-host() {
 }
 zle -N fzf-ssh-known-host
 bindkey '^@s' fzf-ssh-known-host
+bindkey '^[s' fzf-ssh-known-host
+
+#---------------------------
+# Utility
+#---------------------------
+function pdfmin()
+{
+    local cnt=0
+    for i in $@; do
+        gs -sDEVICE=pdfwrite \
+           -dCompatibilityLevel=1.4 \
+           -dPDFSETTINGS=/ebook \
+           -dNOPAUSE -dQUIET -dBATCH \
+           -sOutputFile=${i%%.*}.min.pdf ${i} &
+        (( (cnt += 1) % 4 == 0 )) && wait
+    done
+    wait && return 0
+}

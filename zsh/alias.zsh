@@ -10,3 +10,6 @@ alias ks='k9s'
 
 alias usa='usacloud'
 alias lg='lazygit'
+alias np='pnpm'
+alias nx='pnpm dlx'
+alias c='code .'
