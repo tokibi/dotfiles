@@ -183,7 +183,4 @@ fn - o ; app
 app < fn - o ; default
 app < escape ; default
 app < t : open -na /opt/homebrew/bin/wezterm; skhd -k "escape"
-app < s : open -na Slack; skhd -k "escape"
-app < n : open -na Notion; skhd -k "escape"
 app < c : open -na Google\ Chrome; skhd -k "escape"
-app < g : open -na Gather; skhd -k "escape"
