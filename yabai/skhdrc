@@ -78,10 +78,10 @@
 # restart
 fn + cmd - q : \
         /usr/bin/env osascript <<< 'display notification "Restarting Yabai" with title "Yabai"'; \
-        brew services restart yabai
+        yabai --restart-service
 fn + cmd - r : \
         /usr/bin/env osascript <<< 'display notification "Restarting skhd" with title "skhd"'; \
-        brew services restart skhd
+        skhd --restart-service
 
 # toggle fullscreen
 fn - f : yabai -m window --toggle zoom-fullscreen
@@ -187,110 +187,3 @@ app < s : open -na Slack; skhd -k "escape"
 app < n : open -na Notion; skhd -k "escape"
 app < c : open -na Google\ Chrome; skhd -k "escape"
 app < g : open -na Gather; skhd -k "escape"
-
-
-# restart
-rshift+ralt + cmd - q : \
-        /usr/bin/env osascript <<< 'display notification "Restarting Yabai" with title "Yabai"'; \
-        brew services restart yabai
-rshift+ralt + cmd - r : \
-        /usr/bin/env osascript <<< 'display notification "Restarting skhd" with title "skhd"'; \
-        brew services restart skhd
-
-# toggle fullscreen
-rshift+ralt - f : yabai -m window --toggle zoom-fullscreen
-rshift+ralt - e : yabai -m window --toggle zoom-parent
-
-rshift+ralt - y: ~/.config/yabai/bin/ensure-focus-window.sh
-
-# focus window
-# (If there is a window that is full-screened, disable it.)
-rshift+ralt - h : ~/.config/yabai/bin/disable-fullscreen.sh && \
-         ~/.config/yabai/bin/ensure-focus-window.sh && \
-                 (yabai -m window --focus west || yabai -m display --focus west)
-rshift+ralt - j : ~/.config/yabai/bin/disable-fullscreen.sh && \
-         ~/.config/yabai/bin/ensure-focus-window.sh && \
-         (yabai -m window --focus south || yabai -m display --focus south)
-rshift+ralt - k : ~/.config/yabai/bin/disable-fullscreen.sh && \
-         ~/.config/yabai/bin/ensure-focus-window.sh && \
-         (yabai -m window --focus north || yabai -m display --focus north)
-rshift+ralt - l : ~/.config/yabai/bin/disable-fullscreen.sh && \
-         ~/.config/yabai/bin/ensure-focus-window.sh && \
-         (yabai -m window --focus east || yabai -m display --focus east)
-
-# create and focus space
-rshift+ralt + cmd - t : \
-        yabai -m space --create && \
-        index="$(yabai -m query --spaces --display | jq 'map(select(."is-native-fullscreen" == false))[-1].index')" && \
-        yabai -m space --focus "${index}"
-# destroy space
-rshift+ralt + cmd - w : yabai -m space --destroy
-
-# fast focus desktop
-rshift+ralt - p : yabai -m space --focus prev
-rshift+ralt - n : yabai -m space --focus next
-rshift+ralt - 1 : yabai -m space --focus 1
-rshift+ralt - 2 : yabai -m space --focus 2
-rshift+ralt - 3 : yabai -m space --focus 3
-rshift+ralt - 4 : yabai -m space --focus 4
-rshift+ralt - 5 : yabai -m space --focus 5
-rshift+ralt - 6 : yabai -m space --focus 6
-rshift+ralt - 7 : yabai -m space --focus 7
-rshift+ralt - 8 : yabai -m space --focus 8
-rshift+ralt - 9 : yabai -m space --focus 9
-
-# send window to desktop and follow focus
-rshift+ralt + cmd - p : yabai -m window --space prev; sketchybar --trigger windows_on_spaces
-rshift+ralt + cmd - n : yabai -m window --space next; sketchybar --trigger windows_on_spaces
-rshift+ralt + cmd - 1 : yabai -m window --space  1; sketchybar --trigger windows_on_spaces
-rshift+ralt + cmd - 2 : yabai -m window --space  2; sketchybar --trigger windows_on_spaces
-rshift+ralt + cmd - 3 : yabai -m window --space  3; sketchybar --trigger windows_on_spaces
-rshift+ralt + cmd - 4 : yabai -m window --space  4; sketchybar --trigger windows_on_spaces
-rshift+ralt + cmd - 5 : yabai -m window --space  5; sketchybar --trigger windows_on_spaces
-rshift+ralt + cmd - 6 : yabai -m window --space  6; sketchybar --trigger windows_on_spaces
-rshift+ralt + cmd - 7 : yabai -m window --space  7; sketchybar --trigger windows_on_spaces
-rshift+ralt + cmd - 8 : yabai -m window --space  8; sketchybar --trigger windows_on_spaces
-rshift+ralt + cmd - 9 : yabai -m window --space  9; sketchybar --trigger windows_on_spaces
-
-# swap window
-rshift+ralt + cmd - h : yabai -m window --swap west
-rshift+ralt + cmd - j : yabai -m window --swap south
-rshift+ralt + cmd - k : yabai -m window --swap north
-rshift+ralt + cmd - l : yabai -m window --swap east
-
-# swap space
-rshift+ralt + shift - 1 : yabai -m space --swap 1; sketchybar --trigger windows_on_spaces
-rshift+ralt + shift - 2 : yabai -m space --swap 2; sketchybar --trigger windows_on_spaces
-rshift+ralt + shift - 3 : yabai -m space --swap 3; sketchybar --trigger windows_on_spaces
-rshift+ralt + shift - 4 : yabai -m space --swap 4; sketchybar --trigger windows_on_spaces
-rshift+ralt + shift - 5 : yabai -m space --swap 5; sketchybar --trigger windows_on_spaces
-rshift+ralt + shift - 6 : yabai -m space --swap 6; sketchybar --trigger windows_on_spaces
-rshift+ralt + shift - 7 : yabai -m space --swap 7; sketchybar --trigger windows_on_spaces
-rshift+ralt + shift - 8 : yabai -m space --swap 8; sketchybar --trigger windows_on_spaces
-rshift+ralt + shift - 9 : yabai -m space --swap 9; sketchybar --trigger windows_on_spaces
-
-# balance size of windows
-rshift+ralt - b : ~/.config/yabai/bin/disable-fullscreen.sh && \
-         ~/.config/yabai/bin/disable-float.sh && \
-         yabai -m space --balance
-
-# increase window size
-rshift+ralt - w : yabai -m window --resize top:0:-40
-rshift+ralt - a : yabai -m window --resize left:-40:0
-rshift+ralt - s : yabai -m window --resize bottom:0:40
-rshift+ralt - d : yabai -m window --resize right:40:0
-
-# decrease window size
-# rshift+ralt + cmd - w : yabai -m window --resize top:0:20
-# rshift+ralt + cmd - a : yabai -m window --resize left:20:0
-# rshift+ralt + cmd - s : yabai -m window --resize bottom:0:-20
-# rshift+ralt + cmd - d : yabai -m window --resize right:-20:0
-
-# rotate tree
-rshift+ralt - r : yabai -m space --rotate 90
-
-# float / unfloat window and center on screen
-rshift+ralt - t : yabai -m window --toggle float --grid 1:10:2:0:6:1
-
-# app mode
-rshift+ralt - o ; app
