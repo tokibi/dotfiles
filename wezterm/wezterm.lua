@@ -76,7 +76,7 @@ config.keys = {{
         direction = 'Down'
     }
 }, {
-    key = '¥',
+    key = '\\',
     mods = 'LEADER',
     action = act.SplitPane {
         direction = 'Right'
