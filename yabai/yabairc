@@ -49,9 +49,6 @@ yabai -m config right_padding                8
 yabai -m config window_gap                   6
 
 yabai -m rule --add app="^システム情報$" manage=off # About This Mac
-yabai -m rule --add app="^システム環境設定$" manage=off
-yabai -m rule --add app="^System Preferences$" manage=off
-yabai -m rule --add app="^Finder$" manage=off
 yabai -m rule --add app="^DeepL$" manage=off
 yabai -m rule --add app="^Karabiner-.*$" manage=off
 

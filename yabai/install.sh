@@ -10,7 +10,6 @@ info "setup $NAME"
 mkdir -p $XDG_CONFIG_HOME/{yabai,skhd}
 link_file "$SCRIPT_DIR/yabairc" "$XDG_CONFIG_HOME/yabai/yabairc"
 link_file "$SCRIPT_DIR/bin" "$XDG_CONFIG_HOME/yabai/bin"
-link_file "$SCRIPT_DIR/skhdrc" "$XDG_CONFIG_HOME/skhd/skhdrc"
 
 USER=$(whoami)
 YABAI_PATH=$(which yabai)
