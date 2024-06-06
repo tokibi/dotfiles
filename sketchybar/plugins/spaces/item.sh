@@ -13,26 +13,19 @@ space=(
 	icon.color="$OVERLAY1"
 	icon.highlight_color="$PEACH"
 	icon.y_offset=1
+	label.drawing=off
+	label.padding_left=0
 	label.padding_right=15
-	label.font="sketchybar-app-font:Regular:16.0"
 	label.color="$OVERLAY1"
 	label.highlight_color="$TEXT"
-	label.background.height=26
-	label.background.drawing=on
-	label.background.corner_radius=6
-	label.drawing=off
+	label.font="sketchybar-app-font:Regular:16.0"
 	label.y_offset=-1
 	background.padding_right=6
-	background.height=28
-	background.corner_radius=6
-	background.border_width=2
-	background.color="$BASE"
+	background.height=24
+	background.corner_radius=4
+	background.border_width=0
+	background.color="$CRUST"
 	script="$PLUGIN_DIR/spaces/scripts/space.sh"
-	# label.highlight_color="$WHITE"
-	# background.color="$BACKGROUND_1"
-	# background.border_color="$BACKGROUND_2"
-	# background.color="$BASE"
-	# background.border_color="$BASE"
 )
 
 sid=0
@@ -48,19 +41,19 @@ do
 done
 
 spaces_bracket=(
-  background.color="$BACKGROUND_1"
-  background.border_color="$BACKGROUND_2"
-  background.border_width=2
+	background.color="$BACKGROUND_1"
+	background.border_color="$BACKGROUND_2"
+	background.border_width=2
 )
 
 separator=(
-  icon=
-  icon.font="$NERD_FONT:Bold:16.0"
-  padding_left=10
-  padding_right=8
-  label.drawing=off
-  associated_display=active
-  click_script='yabai -m space --create && sketchybar --trigger space_change'
+	icon=
+	icon.font="$NERD_FONT:Bold:16.0"
+	icon.padding_left=6
+	icon.padding_right=4
+	label.drawing=off
+	associated_display=active
+	click_script='yabai -m space --create && sketchybar --trigger space_change'
 )
 
 sketchybar --add bracket spaces_bracket '/space\..*/'  \
