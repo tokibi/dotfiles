@@ -12,7 +12,7 @@ function ud() {
 }
 
 function fzf-select-history() {
-  input-line $(history -10000 | tac | gsed -e 's/^\s*[0-9]\+\*\s\+//' -e 's/^\s*[0-9]\+\s\+//' | awk '!a[$0]++' | fzf --no-sort)
+  input-line $(history -10000 | tac | gsed -e 's/^\s*[0-9]\+\*\s\+//' -e 's/^\s*[0-9]\+\s\+//' | gsed -e 's/\\\\n//g' | awk '!a[$0]++' | fzf --no-sort)
 }
 zle -N fzf-select-history
 bindkey '^r' fzf-select-history

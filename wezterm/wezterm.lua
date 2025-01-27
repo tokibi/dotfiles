@@ -20,25 +20,51 @@ config.font_size = 18.0
 -- NerdFont is built-in to WezTerm and is not specified.
 -- ref: https://wezfurlong.org/wezterm/config/lua/wezterm/nerdfonts.html
 config.font = wezterm.font('Ricty Diminished for Powerline')
+config.use_ime = true
 
+-- UI: General
+config.color_scheme = "Catppuccin Macchiato"
+config.window_decorations = "RESIZE"
+config.window_padding = {
+    left = 10,
+    right = 10,
+    top = 10,
+    bottom = 10
+}
+config.window_background_opacity = 0.9
+config.macos_window_background_blur = 20
+config.show_new_tab_button_in_tab_bar = false
 config.bold_brightens_ansi_colors = true
-
 config.inactive_pane_hsb = {
     hue = 1.0,
     saturation = 0.7,
     brightness = 1.0
 }
 
--- UI
--- color_scheme = "OneHalfDark",
-config.color_scheme = "Catppuccin Macchiato"
-config.window_decorations = "RESIZE"
-config.window_padding = {
-    left = 15,
-    right = 15,
-    top = 10,
-    bottom = 10
-}
+-- UI: Change tab color
+wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
+    local background = "#5c6d74"
+    local foreground = "#FFFFFF"
+
+    if tab.is_active then
+        background = "#ae8b2d"
+        foreground = "#FFFFFF"
+    end
+
+    local title = "   " .. wezterm.truncate_right(tab.active_pane.title, max_width - 1) .. "   "
+
+    return {{
+        Background = {
+            Color = background
+        }
+    }, {
+        Foreground = {
+            Color = foreground
+        }
+    }, {
+        Text = title
+    }}
+end)
 
 -- Key Binding
 config.leader = {

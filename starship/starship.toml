@@ -43,8 +43,11 @@ symbol = " "
 symbol = " "
 format = "[$symbol$branch(:$remote_branch)]($style) "
 
+[git_status]
+deleted = "󰆴 "
+
 [gcloud]
-symbol = "☁️ "
+symbol = "󱇶  "
 format = "[$symbol$active]($style) "
 
 [golang]
@@ -52,7 +55,7 @@ symbol = " "
 format = "[$symbol($version )]($style)"
 
 [kubernetes]
-symbol = "☸ "
+symbol = "󱃾  "
 format = '[$symbol$context( \($namespace\))]($style) '
 disabled = false
 

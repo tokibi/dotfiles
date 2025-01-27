@@ -33,3 +33,6 @@ export CPPFLAGS="-I/opt/homebrew/opt/openssl@3/include"
 
 # mise
 eval "$(mise activate zsh)"
+
+# Android SDK
+export ANDROID_HOME=$HOME/Library/Android/sdk && export PATH=$PATH:$ANDROID_HOME/emulator && export PATH=$PATH:$ANDROID_HOME/platform-tools
