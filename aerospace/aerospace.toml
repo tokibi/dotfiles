@@ -13,6 +13,12 @@ after-startup-command = [
   'exec-and-forget borders active_color=0xff1dd18f inactive_color=0xffb8b8b8 width=6.0 hidpi=on'
 ]
 
+exec-on-workspace-change = [
+    '/bin/bash',
+    '-c',
+    'pgrep -fi swiftbar && open -g "swiftbar://refreshplugin?name=aerospace-workspace.5s.sh"'
+]
+
 # Start AeroSpace at login
 start-at-login = true
 
