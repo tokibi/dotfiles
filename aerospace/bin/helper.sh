@@ -2,17 +2,10 @@
 
 export PATH="/opt/homebrew/bin:$PATH"
 
-function query {
-	echo $(yabai -m query --spaces --display | $jq "$1")
-}
-
 function create_space {
-	# local idx=$(list-workspaces --monitor focused | tail -n1)
-	# aerospace create-space --monitor focused
 }
 
 function destroy_current_space {
-	# yabai -m space --destroy
 }
 
 function focus_window {
