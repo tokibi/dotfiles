@@ -82,7 +82,7 @@ function ensure_focus_window {
 }
 
 function disable_full_screen {
-	aerospace fullscreen off
+	aerospace fullscreen off 2> /dev/null
 }
 
 function disable_float {

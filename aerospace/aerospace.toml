@@ -9,14 +9,12 @@ after-login-command = []
 # You can use it to add commands that run after AeroSpace startup.
 # 'after-startup-command' is run after 'after-login-command'
 # Available commands : https://nikitabobko.github.io/AeroSpace/commands
-after-startup-command = [
-  'exec-and-forget borders active_color=0xff1dd18f inactive_color=0xffb8b8b8 width=6.0 hidpi=on'
-]
+after-startup-command = []
 
 exec-on-workspace-change = [
     '/bin/bash',
     '-c',
-    'pgrep -fi swiftbar && open -g "swiftbar://refreshplugin?name=aerospace-workspace.5s.sh"'
+    'pgrep -fi swiftbar && open -g "swiftbar://refreshplugin?name=aerospace-workspaces.5s.sh"'
 ]
 
 # Start AeroSpace at login
