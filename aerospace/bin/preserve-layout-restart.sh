@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+export PATH="/opt/homebrew/bin:$PATH"
+
 STATE_JSON="$(mktemp -t aerospace_state_XXXX.json)"
 trap 'rm -f "$STATE_JSON"' EXIT
 
