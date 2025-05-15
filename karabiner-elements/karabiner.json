@@ -118,7 +118,7 @@
                         ]
                     },
                     {
-                        "description": "yabai: toggle screen size",
+                        "description": "aerospace: toggle screen size",
                         "manipulators": [
                             {
                                 "from": {
@@ -139,7 +139,7 @@
                         ]
                     },
                     {
-                        "description": "yabai: create and destroy space",
+                        "description": "aerospace: create and destroy space",
                         "manipulators": [
                             {
                                 "from": {
@@ -160,7 +160,7 @@
                         ]
                     },
                     {
-                        "description": "yabai: focus window",
+                        "description": "aerospace: focus window",
                         "manipulators": [
                             {
                                 "from": {
@@ -197,7 +197,7 @@
                         ]
                     },
                     {
-                        "description": "yabai: focus space",
+                        "description": "aerospace: focus space",
                         "manipulators": [
                             {
                                 "from": {
@@ -290,7 +290,7 @@
                         ]
                     },
                     {
-                        "description": "yabai: send window to space",
+                        "description": "aerospace: send window to space",
                         "manipulators": [
                             {
                                 "from": {
@@ -383,7 +383,7 @@
                         ]
                     },
                     {
-                        "description": "yabai: swap space",
+                        "description": "aerospace: swap space",
                         "manipulators": [
                             {
                                 "from": {
@@ -460,7 +460,7 @@
                         ]
                     },
                     {
-                        "description": "yabai: control window size",
+                        "description": "aerospace: control window size",
                         "manipulators": [
                             {
                                 "from": {
@@ -521,7 +521,7 @@
                         ]
                     },
                     {
-                        "description": "yabai: control window potision",
+                        "description": "aerospace: control window potision",
                         "manipulators": [
                             {
                                 "from": {
@@ -641,6 +641,26 @@
                                 "from": { "key_code": "c" },
                                 "to": [
                                     { "shell_command": "open -na Google\\ Chrome" },
+                                    {
+                                        "set_variable": {
+                                            "name": "app_mode",
+                                            "value": 0
+                                        }
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "app_mode",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "from": { "key_code": "z" },
+                                "to": [
+                                    { "shell_command":  "$HOME/.config/aerospace/bin/preserve-layout-restart.sh" },
                                     {
                                         "set_variable": {
                                             "name": "app_mode",
@@ -797,7 +817,7 @@
                         ]
                     },
                     {
-                        "description": "yabai: toggle screen size",
+                        "description": "aerospace: toggle screen size",
                         "manipulators": [
                             {
                                 "from": {
@@ -818,7 +838,7 @@
                         ]
                     },
                     {
-                        "description": "yabai: create and destroy space",
+                        "description": "aerospace: create and destroy space",
                         "manipulators": [
                             {
                                 "from": {
@@ -839,7 +859,7 @@
                         ]
                     },
                     {
-                        "description": "yabai: focus window",
+                        "description": "aerospace: focus window",
                         "manipulators": [
                             {
                                 "from": {
@@ -876,7 +896,7 @@
                         ]
                     },
                     {
-                        "description": "yabai: focus space",
+                        "description": "aerospace: focus space",
                         "manipulators": [
                             {
                                 "from": {
@@ -969,7 +989,7 @@
                         ]
                     },
                     {
-                        "description": "yabai: send window to space",
+                        "description": "aerospace: send window to space",
                         "manipulators": [
                             {
                                 "from": {
@@ -1062,7 +1082,7 @@
                         ]
                     },
                     {
-                        "description": "yabai: swap space",
+                        "description": "aerospace: swap space",
                         "manipulators": [
                             {
                                 "from": {
@@ -1139,7 +1159,7 @@
                         ]
                     },
                     {
-                        "description": "yabai: control window size",
+                        "description": "aerospace: control window size",
                         "manipulators": [
                             {
                                 "from": {
@@ -1200,7 +1220,7 @@
                         ]
                     },
                     {
-                        "description": "yabai: control window potision",
+                        "description": "aerospace: control window potision",
                         "manipulators": [
                             {
                                 "from": {
@@ -1320,6 +1340,26 @@
                                 "from": { "key_code": "c" },
                                 "to": [
                                     { "shell_command": "open -na Google\\ Chrome" },
+                                    {
+                                        "set_variable": {
+                                            "name": "app_mode",
+                                            "value": 0
+                                        }
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "app_mode",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "from": { "key_code": "z" },
+                                "to": [
+                                    { "shell_command": "$HOME/.config/aerospace/bin/preserve-layout-restart.sh" },
                                     {
                                         "set_variable": {
                                             "name": "app_mode",
